@@ -1,11 +1,4 @@
 Coal or Metal,Commodity,Mine Name,Mine Type,Operator ID,Operator Name,State,Status
-M ,"Crushed, Broken Stone NEC ",Newberg Rock & Dirt,Surface,3503598,Newberg Rock & Dirt  ,OR ,Active 
-M ,Construction Sand and Gravel ,Allied Dirt Moving Co Pit & Plant,Surface,0502030,Allied Dirt Moving Company  ,CO ,Abandoned 
-M ,Construction Sand and Gravel ,AM Dirtworks & Aggregate Sales,Surface,4801789,AM Dirtworks & Aggregate Sales  ,ND ,Abandoned 
-C ,Coal (Bituminous) ,Unit Train Loading Facility,Facility,4201449,Atlas-Dirty Devil Mining  ,UT ,Abandoned 
-C ,Coal (Bituminous) ,Blackie Surface Mine & Prep Plant,Surface,4201450,Atlas-Dirty Devil Mining  ,UT ,Abandoned 
-M ,Construction Sand and Gravel ,"Hitt Pit, Inc.",Surface,1002257,Babe's Dirt Work  ,ID ,Abandoned 
-M ,Construction Sand and Gravel ,Bar-Lin Dirt Pit,Surface,1601167,Bar-Lin Dirt Company  ,LA ,Abandoned 
 M ,Construction Sand and Gravel ,Barber'S Dirt Pit,Surface,4103265,Barber'S Dirt Pit  ,TX ,Abandoned 
 M ,Construction Sand and Gravel ,BENDER SAND & DIRT,Surface,1401575,Bender Sand & Dirt  ,KS ,Intermittent 
 M ,Construction Sand and Gravel ,BERT'S DIRT,Surface,1700776,BERT'S DIRT  ,ME ,Abandoned 
@@ -128,5 +121,3 @@ M ,Construction Sand and Gravel ,Highway 642 Dirt Pit,Surface,3800617,Sweat'S Di
 M ,Construction Sand and Gravel ,Toler Roe Dirt Pit,Surface,1601234,Toler Roe Dirt Pit  ,LA ,Abandoned 
 M ,Construction Sand and Gravel ,La Calichera Pit,Surface,4104648,"Tres Palacios Dirt, Sand & Gravel  ",TX ,Abandoned 
 M ,Construction Sand and Gravel ,Crusher,Surface,2103518,Vogt Dirt Service  ,MN ,Intermittent 
-M ,Construction Sand and Gravel ,ADDISON LEASE,Surface,1601292,Watson Dirt Sand & Gravel Pit Inc  ,LA ,Abandoned 
-M ,Construction Sand and Gravel ,Y B Mine,Surface,4103429,Y B Dirt & Loam  ,TX ,Abandoned 
