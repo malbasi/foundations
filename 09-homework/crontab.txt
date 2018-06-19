@@ -24,12 +24,12 @@ server root@foundations-machine:~$ crontab -e
 # For more information see the manual pages of crontab(5) and cron(8)
 #
 # m h  dom mon dow   command
-* 12 * * *  python3 darksky_emailer.py
+0 12 * * *  python3 darksky_emailer.py
 
-* 0 * * * python3 hackerscrape.py 
-* 6 * * * python3 hackerscrape.py                                        
-* 12 * * * python3 hackerscrape.py
-* 18 * * * python3 hackerscrape.py
+0 0 * * * python3 hackerscrape.py 
+0 6 * * * python3 hackerscrape.py                                        
+0 12 * * * python3 hackerscrape.py
+0 18 * * * python3 hackerscrape.py
 
 
 
