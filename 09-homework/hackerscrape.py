@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[86]:
+# In[2]:
 
 
 import requests
@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 
-# In[87]:
+# In[3]:
 
 
 # Visit hackernews and store it in variable doc
@@ -17,7 +17,7 @@ response = requests.get('https://news.ycombinator.com/')
 doc = BeautifulSoup(response.text, 'html.parser')
 
 
-# In[88]:
+# In[4]:
 
 
 # Find the table with each post
@@ -48,7 +48,7 @@ for post in posts:
             
 
 
-# In[112]:
+# In[5]:
 
 
 # This dataframe is complete, but messy. Odd lines need to be joined with the next
@@ -57,7 +57,7 @@ df = pd.DataFrame(list_of_stories)
 # df.head()
 
 
-# In[ ]:
+# In[6]:
 
 
 # make a new DF with just the headlines and links and forward fill the NaN values
@@ -71,7 +71,7 @@ df_headlines = df_headlines.drop_duplicates()
 df_complete = df_headlines.join(df_users)
 
 
-# In[113]:
+# In[7]:
 
 
 import datetime
@@ -79,29 +79,29 @@ right_now = datetime.datetime.now()
 # right_now.strftime("%Y-%m-%d-%-I%p")
 
 
-# In[114]:
+# In[9]:
 
 
 filename = "briefing" + right_now.strftime("%Y-%m-%d-%-I%p") + ".csv"
-df.to_csv(filename, index = False)
+df_complete.to_csv(filename, index = False)
 
 
-# In[115]:
+# In[10]:
 
 
 email_subject = "Here is your " + right_now.strftime('%-I %p') +" briefing"
 
 
-# In[136]:
+# In[11]:
 
 
 
 requests.post(
-    "https://api.mailgun.net/v3/**********/messages",
+    "https://api.mailgun.net/v3/*********/messages",
     auth=("api", "********"),
     files=[("attachment", open(filename))],
-    data={"from": "M Albasi <m*****>",
-          "to": ["M Albasi <md*****>"],
+    data={"from": "M Albasi <*****>",
+          "to": ["M Albasi <*****>"],
           "subject": email_subject,
           "text": email_subject}) 
 
