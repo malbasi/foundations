@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[86]:
 
 
 import requests
@@ -9,19 +9,21 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 
-# In[9]:
+# In[87]:
 
 
+# Visit hackernews and store it in variable doc
 response = requests.get('https://news.ycombinator.com/')
 doc = BeautifulSoup(response.text, 'html.parser')
 
 
-# In[115]:
+# In[88]:
 
 
+# Find the table with each post
 posts = doc.find(class_="itemlist").findAll('tr')
 list_of_stories = []
-
+# Scrape specific info
 for post in posts:
     post_dict={}
     try:
@@ -40,45 +42,54 @@ for post in posts:
         post_dict['points'] = post.find(class_='subtext').span.text
     except:
         pass
+    #Drop empty cells before appending to full list_of_stories
     if len(post_dict) > 0:
         list_of_stories.append(post_dict)
-        
-        
+            
 
 
-# In[116]:
+# In[112]:
 
 
-print(list_of_stories)
-
-
-# In[117]:
-
-
+# This dataframe is complete, but messy. Odd lines need to be joined with the next
+# line and dupes need to be removed.
 df = pd.DataFrame(list_of_stories)
-df.head()
+# df.head()
 
 
-# In[130]:
+# In[ ]:
+
+
+# make a new DF with just the headlines and links and forward fill the NaN values
+df_headlines = df[['headline', 'link']].ffill()
+# Make a new DF with just the points and users and backfill the NaN values
+df_users = df[['points', 'user']].bfill()
+# Drop the dupes from both our new data frams
+df_users = df_users.drop_duplicates()
+df_headlines = df_headlines.drop_duplicates()
+# Join the cleaned DF
+df_complete = df_headlines.join(df_users)
+
+
+# In[113]:
 
 
 import datetime
 right_now = datetime.datetime.now()
-right_now.strftime("%Y-%m-%d-%-I%p")
+# right_now.strftime("%Y-%m-%d-%-I%p")
 
 
-# In[125]:
+# In[114]:
 
 
 filename = "briefing" + right_now.strftime("%Y-%m-%d-%-I%p") + ".csv"
 df.to_csv(filename, index = False)
 
 
-# In[133]:
+# In[115]:
 
 
 email_subject = "Here is your " + right_now.strftime('%-I %p') +" briefing"
-print(email_subject)
 
 
 # In[136]:
@@ -86,11 +97,11 @@ print(email_subject)
 
 
 requests.post(
-    "https://api.mailgun.net/v3/*******/messages",
-    auth=("api", "*****"),
+    "https://api.mailgun.net/v3/**********/messages",
+    auth=("api", "********"),
     files=[("attachment", open(filename))],
-    data={"from": "M Albasi <mda2160@columbia.edu>",
-          "to": ["M Albasi <mda2160@columbia.edu>"],
+    data={"from": "M Albasi <m*****>",
+          "to": ["M Albasi <md*****>"],
           "subject": email_subject,
           "text": email_subject}) 
 
