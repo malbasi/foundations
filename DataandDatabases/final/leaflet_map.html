@@ -238,12 +238,12 @@ var info = L.control();
 
 	// map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 	function getColor(d) {
-		return d > 9  ? '#FFF800' :
-				d > 8.9  ? '#ffdb05' :
-				d > 4    ? '#ffc808' :
-        d > 2.8   ? '#FF950D' :
-				d > 1.8   ? '#ff9810' :
-				d > 0   ? '#FF2D1D' :
+		return d > 5  ? '#ffffd4' :
+				d > 4  ? '#fee391' :
+				d > 3    ? '#fec44f' :
+        d > 2   ? '#fe9929' :
+				d > 1   ? '#d95f0e' :
+				d > -5   ? '#993404' :
 							'#d3d3d3';
 	}
 
@@ -252,7 +252,7 @@ var info = L.control();
 	legend.onAdd = function (map) {
 
 		var div = L.DomUtil.create('div', 'info legend'),
-			grades = [-2, 0, 1.8, 3, 5, 9],
+			grades = [-5, 1, 2, 3, 4, 5],
 			labels = ['Income change %'],
 			from, to;
 
